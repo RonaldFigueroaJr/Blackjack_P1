@@ -15,12 +15,30 @@
     <br>
     <br>
     <br>
-    <h2 class="pAmt">Amount: $</h2>
+    <h2 class="pAmt" id="pBalance">Amount</h2>
     <br>
     <br>
     <br>
     <br>
-    <h2 class="dealer"><strong>DEALER</strong></h2>
+    <h2 id="dealer"><strong>DEALER</strong></h2>
+    <div class="playerHand"></div>
+    <div class="containerD"></div> 
+        <div class="newMsg" id="msgUpdate">Press "New Game" to start a game!</div>
+            <div class="playBtn" id="newGame">
+                <button id="play" onclick="Start()" class="btn">New Game</button></div>
+    <div id="bets" style="display:block"></div>
+        <div class="chips"></div>
+                <div id="blackChip">
+                    <input type="image" class="betChips" src="https://i.imgur.com/BkjWSWN.png" alt="submit" style="height:50px">
+                </div>
+                <div id="redChip">
+                    <input type="image" class="betChips" src="https://i.imgur.com/mD4nBGK.png" alt="submit" style="height:50px">
+                </div>
+        <div id="cardOptions">
+            <button id="holdBtn" class="btn" type="button" onclick="cardAction('hold')">Hold</button>
+            <button id="hitBtn" class="btn" type="button" onclick="cardAction('hit')">Hit</button>
+            <button id="doubleBtn" class="btn" type="button" onclick="cardAction('double')">Double</button>
+        </div>
 
 </body>
 </html>
