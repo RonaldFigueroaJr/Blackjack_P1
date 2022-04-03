@@ -15,17 +15,17 @@
     <br>
     <br>
     <br>
-    <h2 class="pAmt" id="pBalance">Amount</h2>
+    <h2 class="pAmt" id="pBalance">Amount: <span id="pMoney"></span></h2>
     <br>
     <br>
     <br>
     <br>
-    <h2 id="dealer"><strong>DEALER</strong></h2>
+    <h2 id="dealer" style="display:block"><strong>DEALER</strong></h2>
     <div class="playerHand"></div>
+    <div class="dealerHand"></div>
     <div class="containerD"></div> 
-        <div class="newMsg" id="msgUpdate">Press "New Game" to start a game!</div>
-            <div class="playBtn" id="newGame">
-                <button id="play" onclick="Start()" class="btn">New Game</button></div>
+        <div class="newMsg" id="msgUpdate" style="display:block;">Place a bet to start a new game! <input type="betAmount" placeholder="Bet Amount"></div>
+            <div class="playBtn" id="newGame"><button id="play" onclick="startGame()" class="btn">Deal</button></div>
     <div id="bets" style="display:block"></div>
         <div class="chips"></div>
                 <div id="blackChip">
@@ -35,9 +35,12 @@
                     <input type="image" class="betChips" src="https://i.imgur.com/mD4nBGK.png" alt="submit" style="height:50px">
                 </div>
         <div id="cardOptions">
-            <button id="holdBtn" class="btn" type="button" onclick="cardAction('hold')">Hold</button>
-            <button id="hitBtn" class="btn" type="button" onclick="cardAction('hit')">Hit</button>
-            <button id="doubleBtn" class="btn" type="button" onclick="cardAction('double')">Double</button>
+            <button id="holdBtn" class="btn" type="button" onclick="cardAction('hold')">H O L D</button>
+            <button id="hitBtn" class="btn" type="button" onclick="cardAction('hit')">H I T</button>
+            <button id="doubleBtn" class="btn" type="button" onclick="cardAction('double')">D O U B L E</button>
+        </div>
+        <div>
+            <button id="dealBtn" class="btn" type="button" onclick="hidden" style="display:none">New Game</button>
         </div>
 
 </body>
