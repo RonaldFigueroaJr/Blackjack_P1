@@ -1,5 +1,18 @@
 body {
     display: grid;
-    background-size: cover;
-    background-image: url("https://media.istockphoto.com/vectors/black-jack-table-vector-illustration-eps-10-casino-vector-id1147481668?k=20&m=1147481668&s=170667a&w=0&h=hmBWSGX21Hn52GK36qTGjw_ZkdeCV4OwgonV5Cu69QM=");
+    background-size: 100%;
+    grid-template-columns: 210px repeat(6, 1fr);
+    grid-template-rows: 300px 300px 25% 10% repeat(6, 1fr);
+    background-image: url("https://www.a-zdarts.com/blog/wp-content/uploads/2020/01/Poker-Table-1024x603.jpg");
+}
+
+.pAmt {
+    text-align: left;
+    position: relative;
+    grid-row-start: -1;
+}
+
+.dealer {
+    text-align: center;
+    font-size: 10vmin;
 }
