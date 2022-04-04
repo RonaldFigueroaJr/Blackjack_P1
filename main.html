@@ -21,10 +21,16 @@
     <br>
     <br>
     <h2 id="dealer" style="display:block"><strong>DEALER</strong></h2>
-    <div class="playerHand"></div>
-    <div class="dealerHand"></div>
+    
+    
+    <div class="playerHand">
+        <h2>You: <span id="your-hand-result">0</span></h2>
+    </div>
+    <div class="dealerHand">
+        <h2>Dealer: <span id="dealer-hand-result">0</span></h2>
+    </div>
     <div class="containerD"></div> 
-        <div class="newMsg" id="msgUpdate" style="display:block;">Place a bet to start a new game! <input type="betAmount" placeholder="Bet Amount"></div>
+        <div class="newMsg" id="msgUpdate" style="display:block;"></div>
             <div class="playBtn" id="newGame"><button id="play" onclick="startGame()" class="btn">Deal</button></div>
     <div id="bets" style="display:block"></div>
         <div class="chips"></div>
@@ -35,8 +41,8 @@
                     <input type="image" class="betChips" src="https://i.imgur.com/mD4nBGK.png" alt="submit" style="height:50px">
                 </div>
         <div id="cardOptions">
-            <button id="holdBtn" class="btn" type="button" onclick="cardAction('hold')">H O L D</button>
-            <button id="hitBtn" class="btn" type="button" onclick="cardAction('hit')">H I T</button>
+            <button id="holdBtn" class="btn" type="button" onclick="cardAction()">H O L D</button>
+            <button id="hitBtn" class="btn" type="button">H I T</button>
             <button id="doubleBtn" class="btn" type="button" onclick="cardAction('double')">D O U B L E</button>
         </div>
         <div>
