@@ -4,11 +4,11 @@ body {
     background-size: cover;
   }
   
-  .container {
+  /* .container {
     margin: 0 auto;
-    text-align: center;
+    text-align: left;
     color: white;
-  }
+  } */
   
   .flex-blackjack-row-1, .flex-blackjack-row-2, .flex-blackjack-row-3 {
     display: flex;
@@ -56,4 +56,14 @@ body {
   
   #draw-header {
     color: yellow;
+  }
+
+  #title {
+    text-align: left;
+    color: white;
+    font-size: 100px;
+  }
+
+  #msgBox {
+      text-align: center;
   }
