@@ -86,20 +86,20 @@ function showCard(card, activePlayer) {
   
 function updateScore(card, activePlayer) {
       if (card === "A") {
-          if (activePlayer["score"] + blackjackGame["cardsMap"][card][1] <= 21) {
-              activePlayer["score"] += blackjackGame["cardsMap"][card][1];
+          if (activePlayer["score"] + blackjackGame["cardsVal"][card][1] <= 21) {
+              activePlayer["score"] += blackjackGame["cardsVal"][card][1];
             } else {
-                activePlayer["score"] += blackjackGame["cardsMap"][card][0];
+                activePlayer["score"] += blackjackGame["cardsVal"][card][0];
             }
         } else {
-            activePlayer["score"] += blackjackGame["cardsMap"][card];
+            activePlayer["score"] += blackjackGame["cardsVal"][card];
         }
         
         console.log(activePlayer["score"]);
     }
     
 function showScore(activePlayer) {
-        
+
         if (activePlayer["score"] > 21) {
             document.querySelector(activePlayer["scoreSpan"]).textContent = "BUST!";
             document.querySelector(activePlayer["scoreSpan"]).style.color = "red";
@@ -154,17 +154,17 @@ function showWinner(winner) {
             message = "You Won";
             messageColor = "#00e676";
             document.querySelector("#wins").textContent = blackjackGame["wins"] += 1;
-            // winSound.play();
+            winSound.play();
         } else if (winner === dealer) {
             message = "You Lost";
             messageColor = "red";
             document.querySelector("#losses").textContent = blackjackGame["losses"] += 1;
-            // loseSound.play();
+            loseSound.play();
         } else if (winner === "Draw") {
             message = "You Drew";
             messageColor = "yellow";
             document.querySelector("#draws").textContent = blackjackGame["draws"] += 1;
-            // loseSound.play();
+            loseSound.play();
         } else if (winner === "None") {
             message = "You Both Busted!";
             messageColor = "orange";
@@ -217,7 +217,7 @@ function widthSize() {
           let newWidthSize = window.screen.width * 0.1;
           return newWidthSize;
         } else {
-          return window.screen.width * 0.18;
+          return window.screen.width * 0.15;
         }
       }
       
