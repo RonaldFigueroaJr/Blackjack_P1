@@ -1,14 +1,14 @@
 // Const Variables
 const blackjackGame = {
     you: {
-      scoreSpan: "#your-blackjack-result",
+      scoreSpan: "#playerResult",
       div: "#your-box",
       boxSize: ".flex-blackjack-row-2 div",
       score: 0,
     },
   
     dealer: {
-      scoreSpan: "#dealer-blackjack-result",
+      scoreSpan: "#dealerResult",
       div: "#dealer-box",
       boxSize: ".flex-blackjack-row-2 div",
       score: 0,
@@ -16,7 +16,7 @@ const blackjackGame = {
   
     cards: ["2", "3", "4", "5", "6", "7", "8", "9", "10", "K", "J", "Q", "A"],
   
-    cardsMap: {
+    cardsVal: {
       2: 2,
       3: 3,
       4: 4,
@@ -40,13 +40,13 @@ const blackjackGame = {
     pressOnce: false,
   };
 const player = blackjackGame["you"];
-const DEALER = blackjackGame["dealer"];
+const dealer = blackjackGame["dealer"];
 let windowWidth = window.screen.width;
 let windowHeight = window.screen.height;
 let winner;
 
   
-  
+// Sounds
 const hitSound = new Audio("sounds/swish.m4a");
 const winSound = new Audio("sounds/cash.mp3");
 const loseSound = new Audio("sounds/aww.mp3");
@@ -83,67 +83,149 @@ function showCard(card, activePlayer) {
     }
   }
   
-function widthSize() {
-    if (windowWidth > 1000) {
-      let newWidthSize = window.screen.width * 0.1;
-      return newWidthSize;
-    } else {
-      return window.screen.width * 0.18;
-    }
-  }
-  
-function heightSize() {
-    if (windowHeight > 700) {
-      let newHeightSize = window.screen.height * 0.18;
-      return newHeightSize;
-    } else {
-      return window.screen.height * 0.15;
-    }
-  }
   
 function updateScore(card, activePlayer) {
-    if (card === "A") {
-      if (activePlayer["score"] + blackjackGame["cardsMap"][card][1] <= 21) {
-        activePlayer["score"] += blackjackGame["cardsMap"][card][1];
-      } else {
-        activePlayer["score"] += blackjackGame["cardsMap"][card][0];
-      }
-    } else {
-      activePlayer["score"] += blackjackGame["cardsMap"][card];
+      if (card === "A") {
+          if (activePlayer["score"] + blackjackGame["cardsMap"][card][1] <= 21) {
+              activePlayer["score"] += blackjackGame["cardsMap"][card][1];
+            } else {
+                activePlayer["score"] += blackjackGame["cardsMap"][card][0];
+            }
+        } else {
+            activePlayer["score"] += blackjackGame["cardsMap"][card];
+        }
+        
+        console.log(activePlayer["score"]);
     }
-  
-    console.log(activePlayer["score"]);
-  }
-  
+    
 function showScore(activePlayer) {
-      
-    if (activePlayer["score"] > 21) {
-      document.querySelector(activePlayer["scoreSpan"]).textContent = "BUST!";
-      document.querySelector(activePlayer["scoreSpan"]).style.color = "red";
-    } else {
-      document.querySelector(activePlayer["scoreSpan"]).textContent =
-        activePlayer["score"];
+        
+        if (activePlayer["score"] > 21) {
+            document.querySelector(activePlayer["scoreSpan"]).textContent = "BUST!";
+            document.querySelector(activePlayer["scoreSpan"]).style.color = "red";
+        } else {
+            document.querySelector(activePlayer["scoreSpan"]).textContent = activePlayer["score"];
+        }
     }
-  }
-  
+    
 function blackjackStand() {
-    if (blackjackGame.pressOnce === false) {
-      blackjackGame["isStand"] = true;
-      let yourImages = document.querySelector("#your-box").querySelectorAll("img");
-  
-      for (let i = 0; i < yourImages.length; i++) {
-        let card = randomCard();
-        showCard(card, DEALER);
-        updateScore(card, DEALER);
-        showScore(DEALER);
-      }
-  
-      blackjackGame["isTurnsOver"] = true;
-  
-      computeWinner();
-      showWinner(winner);
+        if (blackjackGame.pressOnce === false) {
+            blackjackGame["isStand"] = true;
+            let yourImages = document.querySelector("#your-box").querySelectorAll("img");
+            
+            for (let i = 0; i < yourImages.length; i++) {
+                let card = randomCard();
+                showCard(card, dealer);
+                updateScore(card, dealer);
+                showScore(dealer);
+            }
+            
+            blackjackGame["isTurnsOver"] = true;
+            
+            computeWinner();
+            showWinner(winner);
+        }
+        
+        blackjackGame.pressOnce = true;
     }
-  
-    blackjackGame.pressOnce = true;
-  }
-  
+    
+function computeWinner() {
+        if (player["score"] <= 21) {
+            if (player["score"] > dealer["score"] || dealer["score"] > 21) {
+                winner = player;
+            } else if (player["score"] < dealer["score"]) {
+                winner = dealer;
+            } else if (player["score"] === dealer["score"]) {
+                winner = "Draw";
+            }
+        } else if (player["score"] > 21 && dealer["score"] <= 21) {
+            winner = dealer;
+        } else if (player["score"] > 21 && dealer["score"] > 21) {
+            winner = "dealer";
+        }
+        
+        return winner;
+    }
+    
+function showWinner(winner) {
+        let message, messageColor;
+        
+        if (winner === player) {
+            message = "You Won";
+            messageColor = "#00e676";
+            document.querySelector("#wins").textContent = blackjackGame["wins"] += 1;
+            // winSound.play();
+        } else if (winner === dealer) {
+            message = "You Lost";
+            messageColor = "red";
+            document.querySelector("#losses").textContent = blackjackGame["losses"] += 1;
+            // loseSound.play();
+        } else if (winner === "Draw") {
+            message = "You Drew";
+            messageColor = "yellow";
+            document.querySelector("#draws").textContent = blackjackGame["draws"] += 1;
+            // loseSound.play();
+        } else if (winner === "None") {
+            message = "You Both Busted!";
+            messageColor = "orange";
+            loseSound.play();
+        }
+        
+        document.querySelector("#blackjack-result").textContent = message;
+        document.querySelector("#blackjack-result").style.color = messageColor;
+    }
+    
+function blackjackDeal() {
+        if (blackjackGame["isTurnsOver"] === true) {
+            
+            let yourImages = document.querySelector("#your-box").querySelectorAll("img");
+            let dealerImages = document.querySelector("#dealer-box").querySelectorAll("img");
+            
+            document.querySelector("#blackjack-result").style.color = "white";
+            
+            player["score"] = dealer["score"] = 0;
+            document.querySelector("#playerResult").textContent = 0;
+            document.querySelector("#dealerResult").textContent = 0;
+            document.querySelector("#playerResult").style.color = "white";
+            document.querySelector("#dealerResult").style.color = "white";
+            document.querySelector("#blackjack-result").textContent = "Lets Play";
+            
+            for (let i = 0; i < yourImages.length; i++) {
+                yourImages[i].remove();
+                dealerImages[i].remove();
+            }
+            
+            blackjackGame["isStand"] = false;
+            blackjackGame.pressOnce = false;
+            blackjackGame["isTurnsOver"] = false;
+        }
+    }
+    
+function blackjackRestart() {
+        blackjackDeal();
+        document.querySelector("#wins").textContent = 0;
+        document.querySelector("#losses").textContent = 0;
+        document.querySelector("#draws").textContent = 0;
+        
+        blackjackGame.wins = 0;
+        blackjackGame.losses = 0;
+        blackjackGame.draws = 0;
+    }
+
+function widthSize() {
+        if (windowWidth > 1000) {
+          let newWidthSize = window.screen.width * 0.1;
+          return newWidthSize;
+        } else {
+          return window.screen.width * 0.18;
+        }
+      }
+      
+function heightSize() {
+        if (windowHeight > 700) {
+          let newHeightSize = window.screen.height * 0.18;
+          return newHeightSize;
+        } else {
+          return window.screen.height * 0.15;
+        }
+      }
