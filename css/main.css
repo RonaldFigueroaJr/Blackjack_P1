@@ -10,9 +10,7 @@ body {
     color: white;
   }
   
-  .flex-blackjack-row-1,
-  .flex-blackjack-row-2,
-  .flex-blackjack-row-3 {
+  .flex-blackjack-row-1, .flex-blackjack-row-2, .flex-blackjack-row-3 {
     display: flex;
     padding: 5px;
     flex-wrap: wrap;
@@ -31,9 +29,7 @@ body {
     padding: 10px;
   }
   
-  table,
-  th,
-  td {
+  table, th, td {
     padding: 5px;
     border: 1px solid white;
     color: white;
