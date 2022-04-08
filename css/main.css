@@ -4,13 +4,7 @@ body {
     background-size: contain;
     background-color: black;
   }
-  
-  /* .container {
-    margin: 0 auto;
-    text-align: left;
-    color: white;
-  } */
-  
+
   .flex-blackjack-row-1, .flex-blackjack-row-2, .flex-blackjack-row-3 {
     display: flex;
     padding: 5px;
@@ -65,9 +59,15 @@ body {
     color: white;
     font-size: 100px;
     font-family: "Beau Rivage", sans-serif;
+    margin-left: 5.5px;
   }
 
   #msgBox {
       text-align: center;
       color: white;
+  }
+
+  p {
+      margin-top: -3%;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   }
