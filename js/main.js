@@ -59,10 +59,19 @@ const loseSound = new Audio("sounds/aww.mp3");
   document.querySelector("#resetBtn").addEventListener("click", blackjackRestart);
 
 // FUNCTIONS
+init();
 
-function createDeck()
-    {
-        deck = new Array();
+function init() {
+    createDeck();
+    resetBtn.style.display = 'none';
+}
+
+
+
+
+function createDeck() {
+
+        let deck = [];
         for (var i = 0 ; i < cardsVal.length; i++)
         {
             for(var x = 0; x < cards.length; x++)
@@ -161,7 +170,7 @@ function computeWinner() {
         } else if (player["score"] > 21 && dealer["score"] > 21) {
             winner = "dealer";
         }
-        
+        resetBtn.style.display = 'inline';
         return winner;
     }
     
@@ -212,7 +221,7 @@ function blackjackDeal() {
                 yourImages[i].remove();
                 dealerImages[i].remove();
             }
-            
+            resetBtn.style.display = 'none';
             blackjackGame["isStand"] = false;
             blackjackGame.pressOnce = false;
             blackjackGame["isTurnsOver"] = false;
