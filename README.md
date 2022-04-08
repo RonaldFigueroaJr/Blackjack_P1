@@ -5,3 +5,11 @@ Welcome to a simplified version of BlackJack! Rules are simple, whoever is close
 # Screenshots:
 
 <img src="https://gyazo.com/36aa222107910a9567a4a3904cde780c.jpg">
+<img src="https://i.gyazo.com/1b8baf444ad853d614b68d9adf5c8baa.png">
+
+# Technologies Used:
+JavaScript, HTML, and CSS!
+
+# Getting Started:
+
+[Click to play BlackJack!](https://tsujikiri.github.io/Blackjack_P1/)x
