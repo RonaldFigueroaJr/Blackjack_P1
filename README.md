@@ -12,4 +12,10 @@ JavaScript, HTML, and CSS!
 
 # Getting Started:
 
-[Click to play BlackJack!](https://tsujikiri.github.io/Blackjack_P1/)x
+[Click to play BlackJack!](https://tsujikiri.github.io/Blackjack_P1/)
+
+# Next Steps/Updates:
+1. Properly setup casino rule functions. Ex: Dealer draw at "16", stand at "17".
+2. Better refactoring of code to lessen the difficulty of calling new or existing functions for proper execution.
+3. Add betting and balance capabilities.
+4. Make game more interactive. Ex: Animation for cards being drawn?(More research needed), vamped up background for more aesthetic looks.
