@@ -4,4 +4,4 @@ Welcome to a simplified version of BlackJack! Rules are simple, whoever is close
 
 # Screenshots:
 
-<img src="https://gyazo.com/36aa222107910a9567a4a3904cde780c">
+<img src="https://gyazo.com/36aa222107910a9567a4a3904cde780c.jpg">
