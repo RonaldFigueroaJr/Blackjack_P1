@@ -206,7 +206,7 @@ function blackjackDeal() {
             document.querySelector("#dealerResult").textContent = 0;
             document.querySelector("#playerResult").style.color = "white";
             document.querySelector("#dealerResult").style.color = "white";
-            document.querySelector("#blackjack-result").textContent = "Lets Play";
+            document.querySelector("#blackjack-result").textContent = "Try again?";
             
             for (let i = 0; i < yourImages.length; i++) {
                 yourImages[i].remove();
