@@ -15,6 +15,7 @@ const cardsVal = {
     Q: 10,
     A: [1, 11],
   };
+const deck = [];
 
 const blackjackGame = {
     you: {
@@ -30,6 +31,7 @@ const blackjackGame = {
       boxSize: ".flex-blackjack-row-2 div",
       score: 0,
     },
+
     wins: 0,
     losses: 0,
     draws: 0,
@@ -57,7 +59,25 @@ const loseSound = new Audio("sounds/aww.mp3");
   document.querySelector("#resetBtn").addEventListener("click", blackjackRestart);
 
 // FUNCTIONS
-  
+
+function createDeck()
+    {
+        deck = new Array();
+        for (var i = 0 ; i < cardsVal.length; i++)
+        {
+            for(var x = 0; x < cards.length; x++)
+            {
+                var weight = parseInt(cardsVal[i]);
+                if (cardsVal[i] == "J" || cardsVal[i] == "Q" || cardsVal[i] == "K")
+                    weight = 10;
+                if (cardsVal[i] == "A")
+                    weight = 11;
+                var card = { Value: cardsVal[i], Suit: cards[x], Weight: weight };
+                deck.push(card);
+            }
+        }
+    }
+
 function blackjackHit() {
     if (blackjackGame["isStand"] === false) {
       let card = randomCard();
@@ -149,22 +169,22 @@ function showWinner(winner) {
         let message, messageColor;
         
         if (winner === player) {
-            message = "You Won";
+            message = "Congratulations! You have won!";
             messageColor = "#00e676";
             document.querySelector("#wins").textContent = blackjackGame["wins"] += 1;
             winSound.play();
         } else if (winner === dealer) {
-            message = "You Lost";
+            message = "Aww! You have lost!";
             messageColor = "red";
             document.querySelector("#losses").textContent = blackjackGame["losses"] += 1;
             loseSound.play();
         } else if (winner === "Draw") {
-            message = "You Drew";
+            message = "Would you look at that, it's a tie!";
             messageColor = "yellow";
             document.querySelector("#draws").textContent = blackjackGame["draws"] += 1;
             loseSound.play();
         } else if (winner === "None") {
-            message = "You Both Busted!";
+            message = "A double bust? What are the odds?!";
             messageColor = "orange";
             loseSound.play();
         }
