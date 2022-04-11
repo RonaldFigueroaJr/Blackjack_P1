@@ -1,73 +1,77 @@
 body {
-    background: url("https://c4.wallpaperflare.com/wallpaper/784/833/270/game-poker-wallpaper-preview.jpg");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-color: black;
-  }
+  background: url("https://c4.wallpaperflare.com/wallpaper/784/833/270/game-poker-wallpaper-preview.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: black;
+}
 
-  .flex-blackjack-row-1, .flex-blackjack-row-2, .flex-blackjack-row-3 {
-    display: flex;
-    padding: 5px;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-evenly;
-    color: white;
-  }
-  
-  .flex-blackjack-row-2 div {
-    padding: 10px;
-    flex: 1;
-    height: 350px;
-    text-align: center;
-  }
-  
-  .flex-blackjack-row-2 div img {
-    padding: 10px;
-  }
-  
-  table, th, td {
-    padding: 5px;
-    border: solid white;
-    color: white;
-    align-items: center;
-    text-align: center;
-  }
-  
-  .flex-blackjack-row-3 div {
-    padding: 10px;
-  }
-  
-  .flex-blackjack-row-3 button {
-    padding: 10px;
-    margin-bottom: 10px;
-  }
-  
-  #win-header {
-    color: rgb(255, 255, 255);
-  }
-  
-  #loss-header {
-    color: #ffffff;
-  }
-  
-  #draw-header {
-    color: rgb(255, 255, 255);
-  }
+.flex-blackjack-row-1,
+.flex-blackjack-row-2,
+.flex-blackjack-row-3 {
+  display: flex;
+  padding: 5px;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+  color: white;
+}
 
-  #title {
-    text-align: left;
-    color: white;
-    font-size: 100px;
-    font-family: "Beau Rivage", sans-serif;
-    margin-left: 5.5px;
-  }
+.flex-blackjack-row-2 div {
+  padding: 10px;
+  flex: 1;
+  height: 350px;
+  text-align: center;
+}
 
-  #msgBox {
-      text-align: center;
-      color: white;
-  }
+.flex-blackjack-row-2 div img {
+  padding: 10px;
+}
 
-  p {
-      margin-top: -3%;
-      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  }
+table,
+th,
+td {
+  padding: 5px;
+  border: solid white;
+  color: white;
+  align-items: center;
+  text-align: center;
+}
+
+.flex-blackjack-row-3 div {
+  padding: 10px;
+}
+
+.flex-blackjack-row-3 button {
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+#win-header {
+  color: rgb(255, 255, 255);
+}
+
+#loss-header {
+  color: #ffffff;
+}
+
+#draw-header {
+  color: rgb(255, 255, 255);
+}
+
+#title {
+  text-align: left;
+  color: white;
+  font-size: 100px;
+  font-family: "Beau Rivage", sans-serif;
+  margin-left: 5.5px;
+}
+
+#msgBox {
+  text-align: center;
+  color: white;
+}
+
+p {
+  margin-top: -3%;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
